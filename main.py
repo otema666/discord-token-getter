@@ -5,13 +5,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from colorama import Fore, init, Style
 import win32clipboard
-
+import ctypes
 import requests
 
 import os
 import time
 
-
+ctypes.windll.kernel32.SetConsoleTitleW("Discord Token getter")
 # Inicio tol colorama
 init()
 
@@ -101,7 +101,7 @@ def execute_browser():
     os.system("cls")
     # Esperar hasta que se cargue la página después de iniciar sesión
     print(f"{BLUE}Esperando a que se inicie sesión...{RESET}")
-    WebDriverWait(driver, 60).until(
+    WebDriverWait(driver, 300).until(
         EC.url_contains("https://discord.com/channels/")
     )
     print(f"[{GREEN}√{RESET}] Sesión iniciada correctamente")
@@ -111,11 +111,12 @@ def execute_browser():
 
     tokenGetter = open("getToken.js").read()
 
+    
+    driver.execute_script(tokenGetter)
     print("Ejecutando script", end="")
     loading(6)
     os.system("cls")
     espacio()
-    driver.execute_script(tokenGetter)
     win32clipboard.OpenClipboard()
     token = win32clipboard.GetClipboardData()
     win32clipboard.CloseClipboard()
@@ -124,10 +125,14 @@ def execute_browser():
         'Content-Type': 'application/json'
     }
     res = requests.get('https://discordapp.com/api/v6/users/@me', headers=headers)
+    
     res_json = res.json()
     user_name = f'{res_json["username"]}#{res_json["discriminator"]}'
     print(f'{Fore.LIGHTWHITE_EX}Nombre de la cuenta: {Fore.GREEN}{user_name}')
     print()
+
+
+    
     print(f'{Fore.LIGHTWHITE_EX}Token: {Fore.GREEN}{token}{Fore.RESET}')
     print()
     print(f'{Fore.MAGENTA}El token ha sido copiado al portapapeles correctamente.{Fore.RESET}')

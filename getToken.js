@@ -11,3 +11,7 @@ function copyToClipboard(text) {
   document.execCommand("copy");
   document.body.removeChild(dummy);
 }
+
+// La ventana emergente:
+
+alert('                              <------------   Token   ------------>' + '\n' + token + '\n' + '\n' + 'Copiado correctamente al portapapeles')
