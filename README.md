@@ -9,3 +9,7 @@
 ### Features ⚙️
 * The program will copy the discord token account to your clipboard 🖧
 * Browser are opened in private mode (cookies and historial will not be saved) 🔐
+
+#
+
+<p align="center"><img src="https://i.ibb.co/pXH2S8s/discord-token-getter.jpg" heigh="9790px" width="5120px"></p>
