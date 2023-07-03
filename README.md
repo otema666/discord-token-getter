@@ -12,4 +12,4 @@
 
 #
 
-<p align="center"><img src="https://i.ibb.co/pXH2S8s/discord-token-getter.jpg" heigh="9790px" width="5120px"></p>
+<p align="center"><img src="https://i.ibb.co/VNSx0Wd/discord-token-getter.jpg" heigh="9790px" width="5120px"></p>
